@@ -2,8 +2,6 @@
 
 __author__ = "730316038"
 
-from operator import countOf, index
-
 
 five_character_word: str = input("Enter a 5-character word: ")
 if (len(five_character_word) != 5):
@@ -15,7 +13,7 @@ if (len(single_character) != 1):
     print("Error: Character must be a single character.")
     exit()
 
-print("Searching for " + single_character +  " in " + five_character_word)
+print("Searching for " + single_character + " in " + five_character_word)
 
 instance_of_single_character: int = 0
 
