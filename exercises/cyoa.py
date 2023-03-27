@@ -1,20 +1,23 @@
+"""Exercise Six - Choose Your Own Adventure."""
+__author__: str = "730316038"
+SAD_FACE: str = "\U0001F614"
+CONGRATULATIONS: str = "\U0001F389"
+WAVE: str = "\U0001F44B"
 import random
-
 
 player: str = ""
 points: int = 0
 
-SAD_FACE: str = "\U0001F614"
-CONGRATULATIONS: str = "\U0001F389"
-WAVE: str = "\U0001F44B"
-
 
 def greet() -> None:
-   global player
-   player = input("Welcome to the guessing game! What is your name? ")
+    """Greet the player and take in their name as input."""
+    global player
+    print("Welcome to the guessing game!!")
+    player = input("What is your name? ")
 
 
 def guess_color() -> None:
+    """Ask the player to guess the color of the mystery card, and if correct give them another point."""
     global player
     global points
     
@@ -38,6 +41,7 @@ def guess_color() -> None:
     
 
 def guess_suit(player_points: int) -> int:
+    """Ask the player to guess the suit of the mystery card and return the number of points they have."""
     global player
 
     # List of suits, pick random card suit as the mystery suit being guessed.
@@ -54,14 +58,13 @@ def guess_suit(player_points: int) -> int:
     # See if they guessed correctly and assign points
     if suit_guess == card_suit:
         print(f"You guessed correctly, {player}! {CONGRATULATIONS}")
-        player_points += 1
+        new_points: int = player_points + 1
     else: 
         print(f"You did not guess correctly {SAD_FACE}, better luck next time!")
 
-    return player_points
+    return new_points
     
     
-
 def main() -> None:
     """The entrypoint of the program and main game loop."""
     global points
@@ -81,11 +84,11 @@ def main() -> None:
         path: str = input(f"{player}, which path do you choose? ")
         assert (path == "A") or (path == "B") or (path == "C")
 
-        #Chooses to guess the color.
+        # Chooses to guess the color.
         if path == "A":
             guess_color()
 
-        #Chooses to guess the suit.
+        # Chooses to guess the suit.
         if path == "B":
             points += guess_suit(points)
             
