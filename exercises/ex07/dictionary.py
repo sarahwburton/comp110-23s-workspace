@@ -1,14 +1,18 @@
-"""Exercise Seven - Dictionary Functions """
+"""Exercise Seven - Dictionary Functions."""
 __author__: str = "730316038"
+
 
 def invert(dictionary: dict[str, str]) -> dict[str, str]:
     """Make the keys of a given list the values, and values the keys in a new list."""
     new_dictionary: dict[str, str] = {}
     
     for key in dictionary:
-         val = dictionary[key]
-         new_dictionary[val] = key
+        val = dictionary[key]
+        new_dictionary[val] = key
     
+    if len(new_dictionary) < len(dictionary):
+        raise KeyError("More than one of the same key.")
+
     return new_dictionary
 
 
@@ -37,12 +41,3 @@ def count(items: list[str]) -> dict[str, int]:
         else: 
             frequency_dictionary[i] = 1
     return frequency_dictionary
-
-
-          
-        
-    
-
-
-
-
